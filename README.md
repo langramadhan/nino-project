@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/sahyam2019/oub-remix.svg?branch=sql-extended)](https://travis-ci.com/sahyam2019/oub-remix) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/38fee611df7c4312be63a15cad64a50a)](https://www.codacy.com/manual/sahyam2019/oub-remix?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sahyam2019/oub-remix&amp;utm_campaign=Badge_Grade) ![Last Commit](https://img.shields.io/github/last-commit/sahyam2019/oub-remix) ![Contributers](https://img.shields.io/github/contributors/sahyam2019/oub-remix) ![Forks](https://img.shields.io/github/forks/sahyam2019/oub-remix)     
-# Project OpenUserBot Remix (CLOSED NOW)
+![Last Commit](https://img.shields.io/github/last-commit/langramadhan/nino-project) ![Contributers](https://img.shields.io/github/contributors/langramadhan/nino-project) ![Forks](https://img.shields.io/github/forks/langramadhan/nino-project)     
+# Project Nino Userbot
 
-![logo](https://telegra.ph/file/b17eb811d1666426e7f3b.jpg)
+![logo](https://telegra.ph/file/adaa2c7f2b47f1cf1fac4.jpg)
 
 ```
 #include <std/disclaimer.h>
@@ -30,13 +30,13 @@ The easiest way to deploy this great bot! is click on button below
 Make sure you have an account of heroku and follow all the steps required.
 
 Deploy to Heroku:
-<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/sahyam2019/oub-remix/tree/sql-extended"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a></p>
+<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/langramadhan/nino-project/tree/sql-extended"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a></p>
 
 ## Groups and support
 
-If you want new features, or announcements, you can follow our [oub-remix Channel](https://t.me/oubremix).
+If you want new features, or announcements, you can follow our [nino-project Channel](https://t.me/ninoproject).
 
-For discussion, bug reporting, and help, you can join [oub-remix support Group](https://t.me/remixsupport).
+For discussion, bug reporting, and help, you can join [nino-project support Group](https://t.me/ninoprojectsupport).
 
 ## How to setup Google Drive
 [![SetGDRIVE](https://telegra.ph/file/fde15d05e4bde3448b01a.png)](https://telegra.ph/How-To-Setup-Google-Drive-04-03)
