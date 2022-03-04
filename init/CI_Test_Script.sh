@@ -16,7 +16,7 @@ export BOT_API_KEY TELEGRAM_TOKEN
 tg_sendinfo "<code>I am gonna merge staging into sql-extended</code>"
 cd
 git clone https://github.com/langramadhan/nino-project.git
-cd OpenUserBot
+cd nino-project
 git remote set-url origin https://${GH_USERNAME}:${GH_PERSONAL_TOKEN}@github.com/langramadhan/nino-project.git
 git fetch
 git checkout staging
