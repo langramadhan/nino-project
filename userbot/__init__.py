@@ -91,7 +91,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/sahyam2019/oub-remix.git")
+    "https://github.com/langramadhan/nino-project.git")
 UPSTREAM_REPO_BRANCH = os.environ.get(
     "UPSTREAM_REPO_BRANCH", "sql-extended")    
 
@@ -359,7 +359,7 @@ with bot:
         @tgbot.on(events.NewMessage(pattern="/start"))
         async def handler(event):
             if event.message.from_id != uid:
-                await event.reply("I'm [oub-remix](https://github.com/sahyam2019/oub-remix) modules helper...\nplease make your own bot, don't use mine 😋")
+                await event.reply("I'm [NINO-PROJECT](https://github.com/langramadhan/nino-project) modules helper...\nplease make your own bot, don't use mine 😋")
             else:
                 await event.reply(f"`Hey there {ALIVE_NAME}\n\nI work for you :)`")
 
@@ -373,7 +373,7 @@ with bot:
                 result = builder.article(
                     "Please Use Only With .help Command",
                     text="{}\nTotal loaded modules: {}".format(
-                        "oubremix modules helper.\n",
+                        "ninouserbot modules helper.\n",
                         len(dugmeler),
                     ),
                     buttons=buttons,
@@ -393,10 +393,10 @@ with bot:
                         [
                             custom.Button.url(
                                 "GitHub Repo",
-                                "https://github.com/sahyam2019/oub-remix"),
+                                "https://github.com/langramadhan/nino-project"),
                             custom.Button.url(
                                 "Support",
-                                "https://t.me/remixsupport")],
+                                "https://t.me/ninoprojectsupport")],
                     ],
                     link_preview=False,
                 )
