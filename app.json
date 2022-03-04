@@ -11,7 +11,7 @@
   ],
   "repository": "https://github.com/langramadhan/nino-project",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
-  "success_url": "https://t.me/PPE_Support",
+  "success_url": "https://t.me/ninoprojectsupport",
   "stack": "container",
   "env": {
     "API_KEY": {
