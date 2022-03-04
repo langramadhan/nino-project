@@ -1,7 +1,7 @@
 {
   "name": "OPEN USERBOT REMIX",
   "description": "[NINO-PROJECT] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
-  "logo": "https://telegra.ph/file/8c9bae01f42165930791f.jpg",
+  "logo": "https://telegra.ph/file/d7608474368256fbaeb49.jpg",
   "keywords": [
     "telegram",
     "userbot",
