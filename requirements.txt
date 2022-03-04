@@ -75,7 +75,6 @@ pytube>=9.5.1
 pymongo[srv]
 youtube_search
 justwatch
-deezloader
 zipfile38
 bitlyshortener
 validators
