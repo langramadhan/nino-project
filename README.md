@@ -1,4 +1,4 @@
-![Last Commit](https://img.shields.io/github/last-commit/langramadhan/nino-project) ![Contributers](https://img.shields.io/github/contributors/langramadhan/nino-project) ![Forks](https://img.shields.io/github/forks/langramadhan/nino-project)     
+![Last Commit](https://img.shields.io/github/last-commit/langramadhan/nino-project) ![Forks](https://img.shields.io/github/forks/langramadhan/nino-project)     
 # Project Nino Userbot
 
 ![logo](https://telegra.ph/file/adaa2c7f2b47f1cf1fac4.jpg)
