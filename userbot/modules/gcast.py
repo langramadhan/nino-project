@@ -17,7 +17,8 @@ from telethon.errors.rpcerrorlist import FloodWaitError
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply
+from userbot.events import register
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
@@ -34,7 +35,7 @@ while 0 < 6:
 del _GCAST_BLACKLIST
 
 
-@man_cmd(pattern="gcast(?: |$)(.*)")
+@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
 async def gcast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -65,7 +66,7 @@ async def gcast(event):
     )
 
 
-@man_cmd(pattern="gucast(?: |$)(.*)")
+@register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:
