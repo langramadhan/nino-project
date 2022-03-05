@@ -134,43 +134,13 @@ def get_size(bytes, suffix="B"):
 @register(outgoing=True, pattern="^.botver$")
 async def bot_ver(event):
     """ For .botver command, get the bot version. """
-    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@",
-                                                             "!"):
-        if which("git") is not None:
-            ver = await asyncrunapp(
-                "git",
-                "describe",
-                "--all",
-                "--long",
-                stdout=asyncPIPE,
-                stderr=asyncPIPE,
-            )
-            stdout, stderr = await ver.communicate()
-            verout = str(stdout.decode().strip()) \
-                + str(stderr.decode().strip())
-
-            rev = await asyncrunapp(
-                "git",
-                "rev-list",
-                "--all",
-                "--count",
-                stdout=asyncPIPE,
-                stderr=asyncPIPE,
-            )
-            stdout, stderr = await rev.communicate()
-            revout = str(stdout.decode().strip()) \
-                + str(stderr.decode().strip())
-
-            await event.edit("`Userbot Version: "
+     output = ("`Userbot Version: "
                              f"{verout}"
                              "` \n"
                              "`Revision: "
                              f"{revout}"
                              "`")
-        else:
-            await event.edit(
-                f"Shame that you don't have git, you're running - '{BOT_VER}' anyway!"
-            )
+     await event.edit(output)
 
 
 @register(outgoing=True, pattern="^.pip(?: |$)(.*)")
@@ -217,18 +187,17 @@ async def pipcheck(pip):
         else:
             await pip.edit("`Use .help system to see an example`")
 
-@register(outgoing=True, pattern="^.start$")
+@register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
-    """ For .start command, check if the bot is running.  """
+    """ For .alive command, check if the bot is running.  """
     logo = ALIVE_LOGO
-    uptime = await get_readable_time((time.time() - StartTime))
-    output = (f"`🤖 STATUS: Remix is running ✅`\n"
+    output = (f"=============NINO PROJECT==========`\n"
              f"`Telethon version`: {version.__version__} \n"
              f"`Python version🐍`: {python_version()} \n"
-             f"`Bot Version🤘: Remix {BOT_VER}` \n"
+             f"`Bot Version🤖: Nino {BOT_VER}` \n"
              f"==================================== \n"
              f"`User 👨‍🚀`: {DEFAULTUSER} \n"
-             f"`Maintainer 🏄‍♂️`: @heyworld \n"
+             f"`Maintainer 🏄‍♂️`: @langramadhan \n"
              f"`Bot Uptime ⏱️`: {uptime} \n"
              f"====================================\n")
     if ALIVE_LOGO:
@@ -243,8 +212,6 @@ async def amireallyalive(alive):
                              "\nMake sure the link is directed to the logo picture`")
     else:
         await alive.edit(output)
-        await asyncio.sleep(25)
-        await alive.delete()
 
 @register(outgoing=True, pattern="^.aliveu")
 async def amireallyaliveuser(username):
@@ -274,8 +241,8 @@ CMD_HELP.update({
 \nUsage: Shows the userbot version.\
 \n\n`.pip` <module(s)>\
 \nUsage: Does a search of pip modules(s).\
-\n\n`.start`\
-\nUsage: Type .start to see whether your bot is working or not.\
+\n\n`.alive`\
+\nUsage: Type .alive to see whether your bot is working or not.\
 \n\n`.aliveu` <text>\
 \nUsage: Changes the 'user' in alive to the text you want.\
 \n\n`.resetalive`\
