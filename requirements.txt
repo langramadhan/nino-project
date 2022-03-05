@@ -87,3 +87,5 @@ vcsi
 lottie
 wand
 colour
+py-tgcalls
+telethon-tgcrypto
