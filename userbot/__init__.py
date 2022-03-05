@@ -281,7 +281,6 @@ try:
         session=session,
         api_id=API_KEY,
         api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
@@ -296,7 +295,6 @@ if STRING_2:
         session=session2,
         api_id=API_KEY,
         api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
@@ -311,7 +309,6 @@ if STRING_3:
         session=session3,
         api_id=API_KEY,
         api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
@@ -326,7 +323,6 @@ if STRING_4:
         session=session4,
         api_id=API_KEY,
         api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
@@ -341,7 +337,6 @@ if STRING_5:
         session=session5,
         api_id=API_KEY,
         api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
