@@ -8,6 +8,7 @@
 import os
 import re
 import time
+import sys
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
@@ -21,6 +22,10 @@ from dotenv import load_dotenv
 from requests import get
 from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
+from telethon.tl.types import InputWebDocument
+from telethon.utils import get_display_name
+from telethon.errors import UserIsBlockedError
 
 load_dotenv("config.env")
 
@@ -281,12 +286,14 @@ try:
         session=session,
         api_id=API_KEY,
         api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
+    call_py = PyTgCalls(bot)
 except Exception as e:
     print(f"STRING_SESSION - {e}")
-    quit(1)
+    sys.exit()
 
 if STRING_2:
     session2 = StringSession(str(STRING_2))
@@ -294,9 +301,11 @@ if STRING_2:
         session=session2,
         api_id=API_KEY,
         api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
+    call_py2 = PyTgCalls(MAN2)
 else:
     MAN2 = None
 
@@ -307,9 +316,11 @@ if STRING_3:
         session=session3,
         api_id=API_KEY,
         api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
+    call_py3 = PyTgCalls(MAN3)
 else:
     MAN3 = None
 
@@ -320,9 +331,11 @@ if STRING_4:
         session=session4,
         api_id=API_KEY,
         api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
+    call_py4 = PyTgCalls(MAN4)
 else:
     MAN4 = None
 
@@ -333,11 +346,14 @@ if STRING_5:
         session=session5,
         api_id=API_KEY,
         api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
+    call_py5 = PyTgCalls(MAN5)
 else:
     MAN5 = None
+
 
 # Init Redis
 # Redis will be hosted inside the docker container that hosts the bot
