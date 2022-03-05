@@ -288,7 +288,7 @@ try:
     call_py = PyTgCalls(bot)
 except Exception as e:
     print(f"STRING_SESSION - {e}")
-    sys.exit()
+    quit(1)
 
 if STRING_2:
     session2 = StringSession(str(STRING_2))
