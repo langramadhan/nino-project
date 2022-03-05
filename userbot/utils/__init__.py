@@ -15,5 +15,7 @@ from .tools import (
     human_to_bytes,
     take_screen_shot,
     runcmd,
+    edit_delete,
+    edit_or_reply,
     md5
 )
