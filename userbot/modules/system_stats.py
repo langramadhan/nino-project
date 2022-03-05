@@ -17,7 +17,7 @@ import time
 import asyncio
 from datetime import datetime
 import psutil
-from userbot import CMD_HELP, ALIVE_NAME, BOT_VER, ALIVE_LOGO, bot, StartTime
+from userbot import CMD_HELP, ALIVE_NAME, BOT_VER, ALIVE_LOGO, bot, StartTime, NINO_LOGO
 from userbot.events import register
 
 # ================= CONSTANT =================
@@ -134,12 +134,10 @@ def get_size(bytes, suffix="B"):
 @register(outgoing=True, pattern="^.botver$")
 async def bot_ver(event):
     """ For .botver command, get the bot version. """
-     output = ("`Userbot Version: "
-                             f"{verout}"
-                             "` \n"
-                             "`Revision: "
-                             f"{revout}"
-                             "`")
+     logo = NINO_LOGO
+     output = (f"=========Nino Project========= \n "
+               f"`Bot Version🤖: Nino {BOT_VER}` \n"
+               f"`Maintainer 🏄‍♂️`: @langramadhan \n")
      await event.edit(output)
 
 
@@ -191,7 +189,7 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     logo = ALIVE_LOGO
-    output = (f"=============NINO PROJECT==========`\n"
+    output = (f"==============NINO PROJECT========= \n"
              f"`Telethon version`: {version.__version__} \n"
              f"`Python version🐍`: {python_version()} \n"
              f"`Bot Version🤖: Nino {BOT_VER}` \n"
