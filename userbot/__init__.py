@@ -214,7 +214,7 @@ BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
 
-
+#edit
 def is_mongo_alive():
     try:
         MONGOCLIENT.server_info()
@@ -222,6 +222,111 @@ def is_mongo_alive():
         return False
     return True
 
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/manblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        blacklistman = []
+        break
+    blacklistman = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
+
+while 0 < 6:
+    _WHITELIST = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/whitelist.json"
+    )
+    if _WHITELIST.status_code != 200:
+        if 0 != 5:
+            continue
+        WHITELIST = []
+        break
+    WHITELIST = _WHITELIST.json()
+    break
+
+del _WHITELIST
+
+# 'bot' variable
+if STRING_SESSION:
+    session = StringSession(str(STRING_SESSION))
+else:
+    session = "ManUserBot"
+try:
+    bot = TelegramClient(
+        session=session,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py = PyTgCalls(bot)
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    sys.exit()
+
+if STRING_2:
+    session2 = StringSession(str(STRING_2))
+    MAN2 = TelegramClient(
+        session=session2,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py2 = PyTgCalls(MAN2)
+else:
+    MAN2 = None
+
+
+if STRING_3:
+    session3 = StringSession(str(STRING_3))
+    MAN3 = TelegramClient(
+        session=session3,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py3 = PyTgCalls(MAN3)
+else:
+    MAN3 = None
+
+
+if STRING_4:
+    session4 = StringSession(str(STRING_4))
+    MAN4 = TelegramClient(
+        session=session4,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py4 = PyTgCalls(MAN4)
+else:
+    MAN4 = None
+
+
+if STRING_5:
+    session5 = StringSession(str(STRING_5))
+    MAN5 = TelegramClient(
+        session=session5,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py5 = PyTgCalls(MAN5)
+else:
+    MAN5 = None
 
 # Init Redis
 # Redis will be hosted inside the docker container that hosts the bot
