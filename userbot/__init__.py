@@ -296,66 +296,6 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
-if STRING_2:
-    session2 = StringSession(str(STRING_2))
-    MAN2 = TelegramClient(
-        session=session2,
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
-        auto_reconnect=True,
-        connection_retries=None,
-    )
-    call_py2 = PyTgCalls(MAN2)
-else:
-    MAN2 = None
-
-
-if STRING_3:
-    session3 = StringSession(str(STRING_3))
-    MAN3 = TelegramClient(
-        session=session3,
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
-        auto_reconnect=True,
-        connection_retries=None,
-    )
-    call_py3 = PyTgCalls(MAN3)
-else:
-    MAN3 = None
-
-
-if STRING_4:
-    session4 = StringSession(str(STRING_4))
-    MAN4 = TelegramClient(
-        session=session4,
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
-        auto_reconnect=True,
-        connection_retries=None,
-    )
-    call_py4 = PyTgCalls(MAN4)
-else:
-    MAN4 = None
-
-
-if STRING_5:
-    session5 = StringSession(str(STRING_5))
-    MAN5 = TelegramClient(
-        session=session5,
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
-        auto_reconnect=True,
-        connection_retries=None,
-    )
-    call_py5 = PyTgCalls(MAN5)
-else:
-    MAN5 = None
-
-
 # Init Redis
 # Redis will be hosted inside the docker container that hosts the bot
 # We need redis for just caching, so we just leave it to non-persistent
