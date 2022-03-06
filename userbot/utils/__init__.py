@@ -7,7 +7,7 @@
 from .chrome import chrome, options
 from .progress import progress
 from .google_images_download import googleimagesdownload
-from .decorator import man_handler
+
 
 from .tools import (
     humanbytes,
