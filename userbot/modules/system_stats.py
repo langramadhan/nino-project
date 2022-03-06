@@ -132,23 +132,24 @@ def get_size(bytes, suffix="B"):
 
 
 @register(outgoing=True, pattern="^.botver$")
-async def bot_ver(event):
-    """ For .botver command, get the bot version. """
-     output = (f"=========Nino Project========= \n "
+async def amireallyalive(alive):
+    """ For .botver command, check for bot version.  """
+    logo = NINO_LOGO
+    output = (f"=========Nino Project========= \n "
                f"`Bot Version🤖: Nino {BOT_VER}` \n"
                f"`Maintainer 🏄‍♂️`: @langramadhan \n")
-     if NINO_LOGO:
+    if NINO_LOGO:
         try:
             logo = NINO_LOGO
-            await event.delete()
-            pic_event = await bot.send_file(event.chat_id, logo, caption=output)
+            await alive.delete()
+            pic_alive = await bot.send_file(alive.chat_id, logo, caption=output)
             await asyncio.sleep(40)
-            await pic_event.delete()
+            await pic_alive.delete()
         except BaseException:
-            await event.edit(output + "\n\n *`The provided logo is invalid."
+            await alive.edit(output + "\n\n *`The provided logo is invalid."
                              "\nMake sure the link is directed to the logo picture`")
     else:
-     await event.edit(event, output)
+        await alive.edit(output)
 
 
 @register(outgoing=True, pattern="^.pip(?: |$)(.*)")
