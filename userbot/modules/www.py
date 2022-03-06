@@ -32,9 +32,9 @@ from userbot.events import register
         "usage": ["{tr}speedtest <option>", "{tr}speedtest"],
     },
 )
-async def _(event):
+async def speedtst(spd):
     "Botserver's speedtest by ookla."
-    input_str = event.pattern_match.group(1)
+    input_str = speed.pattern_match.group(1)
     as_text = False
     as_document = False
     if input_str == "image":
@@ -43,8 +43,8 @@ async def _(event):
         as_document = True
     elif input_str == "text":
         as_text = True
-    catevent = await edit_or_reply(
-        event, "`Calculating my internet speed. Please wait!`"
+    spd = await edit_or_reply(
+        spd, "`Calculating my internet speed. Please wait!`"
     )
     start = datetime()
     test = speedtest.Speedtest()
@@ -60,12 +60,12 @@ async def _(event):
     client_infos = response.get("client")
     i_s_p = client_infos.get("isp")
     i_s_p_rating = client_infos.get("isprating")
-    reply_msg_id = await reply_id(event)
+    reply_msg_id = await reply_id(spd)
     try:
         response = test.results.share()
         speedtest_image = response
         if as_text:
-            await catevent.edit(
+            await spd.edit(
                 """`SpeedTest completed in {} seconds`
 
 `Download: {} (or) {} MB/s`
@@ -84,17 +84,17 @@ async def _(event):
                 )
             )
         else:
-            await event.client.send_file(
-                event.chat_id,
+            await spd.client.send_file(
+                spd.chat_id,
                 speedtest_image,
                 caption="**SpeedTest** completed in {} seconds".format(ms),
                 force_document=as_document,
                 reply_to=reply_msg_id,
                 allow_cache=False,
             )
-            await event.delete()
+            await spd.delete()
     except Exception as exc:
-        await catevent.edit(
+        await spd.edit(
             """**SpeedTest** completed in {} seconds
 Download: {} (or) {} MB/s
 Upload: {} (or) {} MB/s
@@ -111,17 +111,17 @@ __With the Following ERRORs__
                 str(exc),
             )
         )
-        
-def convert_from_bytes(size):
+  def speed_convert(size):
+    """
+    Hi human, you can't read bytes?
+    """
     power = 2**10
-    n = 0
-    units = {0: "", 1: "Kbps", 2: "Mbps", 3: "Gbps", 4: "Tbps"}
+    zero = 0
+    units = {0: '', 1: 'Kb/s', 2: 'Mb/s', 3: 'Gb/s', 4: 'Tb/s'}
     while size > power:
         size /= power
-        n += 1
-    return f"{round(size, 2)} {units[n]}"
-
-
+        zero += 1
+    return f"{round(size, 2)} {units[zero]}"
 
 @register(outgoing=True, pattern="^.ping$")
 async def pingme(pong):
