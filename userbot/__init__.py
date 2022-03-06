@@ -191,7 +191,7 @@ ALIVE_LOGO = os.environ.get(
 )
 
 NINO_LOGO = os.environ.get(
-("NINO_LOGO") or "https://telegra.ph/file/8ac762807e443bbe0441d.jpg"
+("NINO_LOGO") or "https://telegra.ph/file/547c423e7bbb0a634c0a5.png"
 )
 
 # Last.fm Module
