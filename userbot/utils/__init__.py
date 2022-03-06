@@ -17,5 +17,6 @@ from .tools import (
     runcmd,
     edit_delete,
     edit_or_reply,
+    reply_id,
     md5
 )
