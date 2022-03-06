@@ -134,7 +134,6 @@ def get_size(bytes, suffix="B"):
 @register(outgoing=True, pattern="^.botver$")
 async def bot_ver(event):
     """ For .botver command, get the bot version. """
-     logo = NINO_LOGO
      output = (f"=========Nino Project========= \n "
                f"`Bot Version🤖: Nino {BOT_VER}` \n"
                f"`Maintainer 🏄‍♂️`: @langramadhan \n")
@@ -149,7 +148,7 @@ async def bot_ver(event):
             await event.edit(output + "\n\n *`The provided logo is invalid."
                              "\nMake sure the link is directed to the logo picture`")
     else:
-     await event.edit(output)
+     await event.edit(event, output)
 
 
 @register(outgoing=True, pattern="^.pip(?: |$)(.*)")
