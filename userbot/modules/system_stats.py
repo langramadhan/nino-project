@@ -132,24 +132,45 @@ def get_size(bytes, suffix="B"):
 
 
 @register(outgoing=True, pattern="^.botver$")
-async def amireallyalive(alive):
-    """ For .botver command, check for bot version.  """
-    logo = NINO_LOGO
-    output = (f"=========Nino Project========= \n "
-               f"`Bot Version🤖: Nino {BOT_VER}` \n"
-               f"`Maintainer 🏄‍♂️`: @langramadhan \n")
-    if NINO_LOGO:
-        try:
-            logo = NINO_LOGO
-            await alive.delete()
-            pic_alive = await bot.send_file(alive.chat_id, logo, caption=output)
-            await asyncio.sleep(40)
-            await pic_alive.delete()
-        except BaseException:
-            await alive.edit(output + "\n\n *`The provided logo is invalid."
-                             "\nMake sure the link is directed to the logo picture`")
-    else:
-        await alive.edit(output)
+async def bot_ver(event):
+    """ For .botver command, get the bot version. """
+    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@",
+                                                             "!"):
+        if which("git") is not None:
+            ver = await asyncrunapp(
+                "git",
+                "describe",
+                "--all",
+                "--long",
+                stdout=asyncPIPE,
+                stderr=asyncPIPE,
+            )
+            stdout, stderr = await ver.communicate()
+            verout = str(stdout.decode().strip()) \
+                + str(stderr.decode().strip())
+
+            rev = await asyncrunapp(
+                "git",
+                "rev-list",
+                "--all",
+                "--count",
+                stdout=asyncPIPE,
+                stderr=asyncPIPE,
+            )
+            stdout, stderr = await rev.communicate()
+            revout = str(stdout.decode().strip()) \
+                + str(stderr.decode().strip())
+
+            await event.edit("Nino Userbot Version: "
+                             f"{verout}"
+                             "` \n"
+                             "`Revision: "
+                             f"{revout}"
+                             "`")
+        else:
+            await event.edit(
+                f"Shame that you don't have git, you're running - '{BOT_VER}' anyway!"
+            )
 
 
 @register(outgoing=True, pattern="^.pip(?: |$)(.*)")
@@ -200,7 +221,8 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     logo = ALIVE_LOGO
-    output = (f"`==============NINO PROJECT=========` \n"
+    uptime = await get_readable_time((time.time() - StartTime))
+    output = (f"`==============NINO PROJECT=========`\n"
              f"`Telethon version`: {version.__version__} \n"
              f"`Python version🐍`: {python_version()} \n"
              f"`Bot Version🤖: Nino {BOT_VER}` \n"
@@ -209,7 +231,7 @@ async def amireallyalive(alive):
              f"`Maintainer 🏄‍♂️`: @langramadhan \n"
              f"`Bot Uptime ⏱️`: {uptime} \n"
              f"====================================\n")
-    if ALIVE_LOGO:
+     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
             await alive.delete()
@@ -221,6 +243,8 @@ async def amireallyalive(alive):
                              "\nMake sure the link is directed to the logo picture`")
     else:
         await alive.edit(output)
+        await asyncio.sleep(25)
+        await alive.delete()
 
 @register(outgoing=True, pattern="^.aliveu")
 async def amireallyaliveuser(username):
