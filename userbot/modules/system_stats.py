@@ -219,7 +219,7 @@ async def pipcheck(pip):
 
 @register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
-    """ For .alive command, check if the bot is running.  """
+    """ For .start command, check if the bot is running.  """
     logo = ALIVE_LOGO
     uptime = await get_readable_time((time.time() - StartTime))
     output = (f"`==============NINO PROJECT=========`\n"
@@ -231,7 +231,7 @@ async def amireallyalive(alive):
              f"`Maintainer 🏄‍♂️`: @langramadhan \n"
              f"`Bot Uptime ⏱️`: {uptime} \n"
              f"====================================\n")
-     if ALIVE_LOGO:
+    if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
             await alive.delete()
