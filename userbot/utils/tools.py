@@ -19,7 +19,8 @@ import sys
 import time
 from typing import Tuple, Union, Optional
 from userbot import bot, LOGS
-
+from telethon.tl.functions.messages import ImportChatInviteRequest as Get
+from telethon.tl.types import MessageEntityMentionName
 from telethon import errors
 from telethon.tl import types
 from telethon.utils import get_display_name
@@ -29,6 +30,14 @@ from telethon.tl.functions.messages import GetPeerDialogsRequest
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename, MessageEntityPre
 from telethon.utils import add_surrogate
+
+async def reply_id(event):
+    reply_to_id = None
+    if event.sender_id in Config.SUDO_USERS:
+        reply_to_id = event.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    return reply_to_id
 
 async def md5(fname: str) -> str:
     hash_md5 = hashlib.md5()
