@@ -142,7 +142,7 @@ async def bot_ver(event):
         try:
             logo = ALIVE_LOGO
             await event.delete()
-            pic_event = await bot.send_file(alive.chat_id, logo, caption=output)
+            pic_event = await bot.send_file(event.chat_id, logo, caption=output)
             await asyncio.sleep(40)
             await pic_event.delete()
         except BaseException:
