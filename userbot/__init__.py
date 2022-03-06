@@ -186,13 +186,10 @@ TERM_ALIAS = os.environ.get("TERM_ALIAS", "nino-project")
 BOT_VER = os.environ.get("BOT_VER", "1.0")
 
 # Default logo
-ALIVE_LOGO = os.environ.get(
-    ("ALIVE_LOGO") or "https://telegra.ph/file/7714b2fd458c5e678d1a6.jpg"
-)
+ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/7714b2fd458c5e678d1a6.jpg"
 
-NINO_LOGO = os.environ.get(
-("NINO_LOGO") or "https://telegra.ph/file/547c423e7bbb0a634c0a5.png"
-)
+NINO_LOGO = os.environ.get("NINO_LOGO") or "https://telegra.ph/file/547c423e7bbb0a634c0a5.png"
+
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
