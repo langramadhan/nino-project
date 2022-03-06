@@ -139,7 +139,7 @@ async def bot_ver(event):
                f"`Maintainer 🏄‍♂️`: @langramadhan \n")
      if NINO_LOGO:
         try:
-            logo = ALIVE_LOGO
+            logo = NINO_LOGO
             await event.delete()
             pic_event = await bot.send_file(event.chat_id, logo, caption=output)
             await asyncio.sleep(40)
