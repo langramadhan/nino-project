@@ -138,6 +138,17 @@ async def bot_ver(event):
      output = (f"=========Nino Project========= \n "
                f"`Bot Version🤖: Nino {BOT_VER}` \n"
                f"`Maintainer 🏄‍♂️`: @langramadhan \n")
+     if NINO_LOGO:
+        try:
+            logo = ALIVE_LOGO
+            await event.delete()
+            pic_event = await bot.send_file(alive.chat_id, logo, caption=output)
+            await asyncio.sleep(40)
+            await pic_event.delete()
+        except BaseException:
+            await event.edit(output + "\n\n *`The provided logo is invalid."
+                             "\nMake sure the link is directed to the logo picture`")
+    else:
      await event.edit(output)
 
 
