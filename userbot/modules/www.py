@@ -14,6 +14,17 @@ from userbot import CMD_HELP
 from userbot.utils import edit_delete, edit_or_reply, reply_id
 from userbot.events import register
 
+def speed_convert(size):
+    """
+    Hi human, you can't read bytes?
+    """
+    power = 2**10
+    zero = 0
+    units = {0: '', 1: 'Kb/s', 2: 'Mb/s', 3: 'Gb/s', 4: 'Tb/s'}
+    while size > power:
+        size /= power
+        zero += 1
+    return f"{round(size, 2)} {units[zero]}"
 
 @register(outgoing=True, pattern="^.speed$")
 @register(
@@ -74,9 +85,9 @@ async def speedtst(spd):
 `Internet Service Provider: {}`
 `ISP Rating: {}`""".format(
                     ms,
-                    convert_from_bytes(download_speed),
+                    speed_convert(download_speed),
                     round(download_speed / 8e6, 2),
-                    convert_from_bytes(upload_speed),
+                    speed_convert(upload_speed),
                     round(upload_speed / 8e6, 2),
                     ping_time,
                     i_s_p,
@@ -103,25 +114,15 @@ Ping: {} ms
 __With the Following ERRORs__
 {}""".format(
                 ms,
-                convert_from_bytes(download_speed),
+                speed_convert(download_speed),
                 round(download_speed / 8e6, 2),
-                convert_from_bytes(upload_speed),
+                speed_convert(upload_speed),
                 round(upload_speed / 8e6, 2),
                 ping_time,
                 str(exc),
             )
         )
-  def speed_convert(size):
-    """
-    Hi human, you can't read bytes?
-    """
-    power = 2**10
-    zero = 0
-    units = {0: '', 1: 'Kb/s', 2: 'Mb/s', 3: 'Gb/s', 4: 'Tb/s'}
-    while size > power:
-        size /= power
-        zero += 1
-    return f"{round(size, 2)} {units[zero]}"
+  
 
 @register(outgoing=True, pattern="^.ping$")
 async def pingme(pong):
