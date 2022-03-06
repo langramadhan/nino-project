@@ -199,11 +199,11 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     logo = ALIVE_LOGO
-    output = (f"==============NINO PROJECT========= \n"
+    output = (f"`==============NINO PROJECT=========` \n"
              f"`Telethon version`: {version.__version__} \n"
              f"`Python version🐍`: {python_version()} \n"
              f"`Bot Version🤖: Nino {BOT_VER}` \n"
-             f"==================================== \n"
+             f"====================================\n"
              f"`User 👨‍🚀`: {DEFAULTUSER} \n"
              f"`Maintainer 🏄‍♂️`: @langramadhan \n"
              f"`Bot Uptime ⏱️`: {uptime} \n"
