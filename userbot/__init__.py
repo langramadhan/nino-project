@@ -188,7 +188,7 @@ BOT_VER = os.environ.get("BOT_VER", "1.0")
 # Default logo
 ALIVE_LOGO = os.environ.get(
     "ALIVE_LOGO") or "https://telegra.ph/file/7714b2fd458c5e678d1a6.jpg" 
-NINO_LOGO = os.environ.get("https://telegra.ph/file/8ac762807e443bbe0441d.jpg")
+NINO_LOGO = os.environ.get("NINO_LOGO") or "https://telegra.ph/file/8ac762807e443bbe0441d.jpg"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
