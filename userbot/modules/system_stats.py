@@ -222,7 +222,7 @@ async def amireallyalive(alive):
     """ For .start command, check if the bot is running.  """
     logo = ALIVE_LOGO
     uptime = await get_readable_time((time.time() - StartTime))
-    output = (f"`==============NINO PROJECT=========`\n"
+    output = (f"`=======NINO PROJECT=======`\n"
              f"`Telethon version`: {version.__version__} \n"
              f"`Python version🐍`: {python_version()} \n"
              f"`Bot Version🤖: Nino {BOT_VER}` \n"
