@@ -56,32 +56,14 @@ if version_info[0] < 3 or version_info[1] < 8:
 
 # Check if the config was edited by using the already used variable.
 # Basically, its the 'virginity check' for the config file ;)
-CONFIG_CHECK = os.environ.get(
-    "___________PLOX_______REMOVE_____THIS_____LINE__________", None)
-
+CONFIG_CHECK = os.environ.get("___________PLOX_______REMOVE_____THIS_____LINE__________", None)
 if CONFIG_CHECK:
     LOGS.info(
         "Please remove the line mentioned in the first hashtag from the config.env file"
     )
     quit(1)
     
-#edit1
-while 0 < 6:
-    _DEVS = get(
-        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/DEVS.json"
-    )
-    if _DEVS.status_code != 200:
-        if 0 != 5:
-            continue
-        DEVS = [844432220, 1906014306, 1382636419, 2133486058]
-        break
-    DEVS = _DEVS.json()
-    break
-
-del _DEVS
-
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
-BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
 
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
@@ -140,6 +122,7 @@ GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
 
 # set to True if you want to log PMs to your PM_LOGGR_BOT_API_ID
 NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
+
 # send .get_id in any channel to forward all your NEW PMs to this group
 PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
 
@@ -183,13 +166,11 @@ BITLY_TOKEN = os.environ.get("BITLY_TOKEN", None)
 TERM_ALIAS = os.environ.get("TERM_ALIAS", "nino-project")
 
 #Bot version
-BOT_VER = os.environ.get("BOT_VER", "1.0")
+BOT_VER = os.environ.get("BOT_VER", "2.0")
 
 # Default logo
-ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/7714b2fd458c5e678d1a6.jpg"
-
 NINO_LOGO = os.environ.get("NINO_LOGO") or "https://telegra.ph/file/547c423e7bbb0a634c0a5.png"
-
+ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/7714b2fd458c5e678d1a6.jpg"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
@@ -237,8 +218,6 @@ API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
 BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
-
-
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
@@ -250,53 +229,6 @@ def is_mongo_alive():
     except BaseException:
         return False
     return True
-
-while 0 < 6:
-    _BLACKLIST = get(
-        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/manblacklist.json"
-    )
-    if _BLACKLIST.status_code != 200:
-        if 0 != 5:
-            continue
-        blacklistman = []
-        break
-    blacklistman = _BLACKLIST.json()
-    break
-
-del _BLACKLIST
-
-while 0 < 6:
-    _WHITELIST = get(
-        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/whitelist.json"
-    )
-    if _WHITELIST.status_code != 200:
-        if 0 != 5:
-            continue
-        WHITELIST = []
-        break
-    WHITELIST = _WHITELIST.json()
-    break
-
-del _WHITELIST
-
-# 'bot' variable
-if STRING_SESSION:
-    session = StringSession(str(STRING_SESSION))
-else:
-    session = "ManUserBot"
-try:
-    bot = TelegramClient(
-        session=session,
-        api_id=API_KEY,
-        api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
-        auto_reconnect=True,
-        connection_retries=None,
-    )
-    call_py = PyTgCalls(bot)
-except Exception as e:
-    print(f"STRING_SESSION - {e}")
-    sys.exit()
 
 # Init Redis
 # Redis will be hosted inside the docker container that hosts the bot
@@ -311,12 +243,6 @@ def is_redis_alive():
     except BaseException:
         return False
     
-
-
-
-
-
-
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
 if not os.path.exists('bin'):
@@ -336,12 +262,15 @@ for binary, path in binaries.items():
 
 # 'bot' variable
 if STRING_SESSION:
-    # pylint: disable=invalid-name
-    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+    session = StringSession(str(STRING_SESSION))
 else:
-    # pylint: disable=invalid-name
-    bot = TelegramClient("userbot", API_KEY, API_HASH)
-
+    session = "NinoProject"
+try:
+    bot = TelegramClient(session=session,api_id=API_KEY,api_hash=API_HASH,connection=ConnectionTcpAbridged,auto_reconnect=True,connection_retries=None,)
+    call_py = PyTgCalls(bot)
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    sys.exit()
 
 async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
@@ -373,7 +302,7 @@ with bot:
     except:
         LOGS.info(
             "BOTLOG_CHATID environment variable isn't valid"
-            "Please generate proper group id and set.You can ask in @remixsupport if you need help")
+            "Please generate proper group id and set.You can ask in ninoprojectsupport if you need help")
         quit(1)
 
 StartTime = time.time()        
@@ -456,13 +385,13 @@ with bot:
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "oubremix Helper",
+                    "nino Helper",
                     text="List of Modules",
                     buttons=[],
                     link_preview=True)
             else:
                 result = builder.article(
-                    "oubremix",
+                    "NinoProject",
                     text="""You can convert your account to bot and use them. Remember, you can't manage someone else's bot! All installation details are explained from GitHub address below.""",
                     buttons=[
                         [
@@ -488,7 +417,6 @@ with bot:
                     event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(
                     current_page_number + 1, dugmeler, "helpme")
-                # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = "Please make for yourself, don't use my bot!"
@@ -500,7 +428,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # pylint:disable=E0602
+            if event.query.user_id == uid:
                 current_page_number = int(
                     event.data_match.group(1).decode("UTF-8"))
                 buttons = paginate_help(
