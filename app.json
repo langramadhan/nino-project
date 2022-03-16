@@ -31,7 +31,7 @@
             "required": false
     },
     "NC_LOG_P_M_S": {
-      "description": "set to True if you want to log PMs to your PM_LOGGR_BOT_API_ID",
+      "description": "set to True if you want to log PMs to your BOTLOG_CHATID",
       "value": "True"
       "required": false
     },
