@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import bot, BOTLOG_CHATID, LOGSPAMMER
+from userbot import bot, BOTLOG_CHATID, LOGSPAMMER, CMD_HANDLER, CMD_LIST
 
 
 def register(**args):
@@ -30,12 +30,17 @@ def register(**args):
     disable_errors = args.get('disable_errors', False)
     insecure = args.get('insecure', False)
     trigger_on_inline = args.get('trigger_on_inline', False)
+    args.get("sudo", False)
 
     if pattern is not None and not pattern.startswith('(?i)'):
         args['pattern'] = '(?i)' + pattern
 
     if "disable_edited" in args:
         del args['disable_edited']
+        
+     if "sudo" in args:
+        del args["sudo"]
+        args["incoming"] = True
 
     if "ignore_unsafe" in args:
         del args['ignore_unsafe']
