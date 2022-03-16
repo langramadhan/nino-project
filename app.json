@@ -53,16 +53,7 @@
     },
     "COUNTRY": {
       "description": "Set your Country to be used in the .time and .date commands.",
-      "required": false
-    },
-    "CHROME_DRIVER": {
-      "description": "ChromeDriver location for selenium based modules.",
-      "value": "/usr/bin/chromedriver",
-      "required": false
-    },
-    "GOOGLE_CHROME_BIN": {
-      "description": "Google Chrome (or) Chromium binary location for selenium based modules.",
-      "value": "/usr/bin/google-chrome",
+      "value": "ID"
       "required": false
     },
     "BOTLOG": {
@@ -97,10 +88,6 @@
       "description": "Report spambots to @admins in groups after they join, just in case when you don't have admin powers to kick that shit yourself.",
       "value": "False"
     },
-    "TMP_DOWNLOAD_DIRECTORY": {
-      "description": "Download location for many modules (GDrive, .download etc..)",
-      "value": "./downloads/"
-    },
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
       "value": "True"
@@ -110,7 +97,7 @@
       "required": false
     },
     "ALIVE_NAME": {
-      "description": "Name to show in .start message",
+      "description": "Name to show in .alive message",
       "required": false
     },
     "G_DRIVE_DATA": {
@@ -119,11 +106,11 @@
     },
     "BITLY_TOKEN": {
       "description": "Your Bit.ly API key, get it from 'https://bitly.com/a/sign_up'",
-      "value": "YOUR TOKEN",
       "required": false
     },
     "WEATHER_DEFCITY": {
       "description": "Set the default city for the userbot's weather module.",
+      "Value": "Jakarta",
       "required": false
     },
     "LOGSPAMMER": {
