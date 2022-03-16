@@ -4,7 +4,7 @@ FROM sahyam/docker:groovy
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b sql-extended https://github.com/langramadhan/nino-project /root/userbot
+RUN git clone -b ninouserbot https://github.com/langramadhan/nino-project /root/userbot
 RUN mkdir /root/userbot/.bin
 WORKDIR /root/userbot
 
