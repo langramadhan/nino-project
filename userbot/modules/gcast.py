@@ -15,7 +15,6 @@ from userbot import CMD_HELP
 from userbot.utils import edit_delete, edit_or_reply
 from userbot.events import register
 
-
 @register(outgoing=True, pattern="^.gcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
@@ -28,15 +27,6 @@ async def gcast(event):
     kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
     er = 0
     done = 0
-    async for x in event.client.iter_dialogs():
-        if x.is_group:
-            chat = x.id
-                except FloodWaitError as anj:
-                    await asyncio.sleep(int(anj.seconds))
-                    await event.client.send_message(chat, msg)
-                    done += 1
-                except BaseException:
-                    er += 1
     await kk.edit(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
@@ -54,15 +44,6 @@ async def gucast(event):
     kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
     er = 0
     done = 0
-    async for x in event.client.iter_dialogs():
-        if x.is_user and not x.entity.bot:
-            chat = x.id
-                except FloodWaitError as anj:
-                    await asyncio.sleep(int(anj.seconds))
-                    await event.client.send_message(chat, msg)
-                    done += 1
-                except BaseException:
-                    er += 1
     await kk.edit(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{er}` **chat**"
     )
