@@ -91,18 +91,15 @@ HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
 
 # JustWatch Country
-WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY","IN")
+WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY","ID")
 
 # Github Credentials for updater and Gitupload.
 GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
 GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 
 # Custom (forked) repo URL for updater.
-UPSTREAM_REPO_URL = os.environ.get(
-    "UPSTREAM_REPO_URL",
-    "https://github.com/langramadhan/nino-project.git")
-UPSTREAM_REPO_BRANCH = os.environ.get(
-    "UPSTREAM_REPO_BRANCH", "sql-extended")    
+UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL","https://github.com/langramadhan/nino-project.git")
+UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH", "ninouserbot")    
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -117,14 +114,14 @@ OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
 REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
 
 # Chrome Driver and Headless Google Chrome Binaries
-CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
-GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+CHROME_DRIVER = os.environ.get("CHROME_DRIVER","/usr/bin/chromedriver")
+GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN""/usr/bin/google-chrome")
 
 # set to True if you want to log PMs to your PM_LOGGR_BOT_API_ID
 NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", False))
 
 # send .get_id in any channel to forward all your NEW PMs to this group
-PM_LOGGR_BOT_API_ID = int(os.environ.get("PM_LOGGR_BOT_API_ID", "-100"))
+PM_LOGGR_BOT_API_ID = int(os.environ.get("BOTLOG_CHATID", "-100"))
 
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
@@ -150,7 +147,7 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
 
 # Time & Date - Country and Time Zone
-COUNTRY = str(os.environ.get("COUNTRY", ""))
+COUNTRY = str(os.environ.get("COUNTRY", "ID"))
 TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
 # Clean Welcome
@@ -195,8 +192,8 @@ G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
 G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
 G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA", None)
 G_DRIVE_FOLDER_ID = os.environ.get("G_DRIVE_FOLDER_ID", None)
-TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
-                                         "./downloads")
+TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY","./downloads")
+
 # Google Photos
 G_PHOTOS_CLIENT_ID = os.environ.get("G_PHOTOS_CLIENT_ID", None)
 G_PHOTOS_CLIENT_SECRET = os.environ.get("G_PHOTOS_CLIENT_SECRET", None)
