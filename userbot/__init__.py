@@ -68,7 +68,7 @@ SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
-SUDO_HANDLER = os.environ.get("SUDO_HANDLER", or "$"
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER") or "$"
 
 # Telegram App KEY and HASH
 API_KEY = os.environ.get("API_KEY", None)
