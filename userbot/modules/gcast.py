@@ -4,11 +4,6 @@
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-#
-# Ported by Koala @manusiarakitann
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
 
 import asyncio
 
@@ -16,23 +11,9 @@ from requests import get
 from telethon.errors.rpcerrorlist import FloodWaitError
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP
 from userbot.utils import edit_delete, edit_or_reply
 from userbot.events import register
-
-while 0 < 6:
-    _GCAST_BLACKLIST = get(
-        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/blacklistgcast.json"
-    )
-    if _GCAST_BLACKLIST.status_code != 200:
-        if 0 != 5:
-            continue
-        GCAST_BLACKLIST = [-1001473548283, -1001390552926]
-        break
-    GCAST_BLACKLIST = _GCAST_BLACKLIST.json()
-    break
-
-del _GCAST_BLACKLIST
 
 
 @register(outgoing=True, pattern="^.gcast(?: |$)(.*)")
@@ -50,11 +31,6 @@ async def gcast(event):
     async for x in event.client.iter_dialogs():
         if x.is_group:
             chat = x.id
-            if chat not in GCAST_BLACKLIST:
-                try:
-                    await event.client.send_message(chat, msg)
-                    await asyncio.sleep(0.1)
-                    done += 1
                 except FloodWaitError as anj:
                     await asyncio.sleep(int(anj.seconds))
                     await event.client.send_message(chat, msg)
@@ -81,11 +57,6 @@ async def gucast(event):
     async for x in event.client.iter_dialogs():
         if x.is_user and not x.entity.bot:
             chat = x.id
-            if chat not in DEVS:
-                try:
-                    await event.client.send_message(chat, msg)
-                    await asyncio.sleep(0.1)
-                    done += 1
                 except FloodWaitError as anj:
                     await asyncio.sleep(int(anj.seconds))
                     await event.client.send_message(chat, msg)
