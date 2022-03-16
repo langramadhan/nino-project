@@ -11,10 +11,10 @@ from datetime import datetime
 from speedtest import Speedtest
 from telethon import functions
 from userbot import CMD_HELP
-from userbot.events import nino_cmd
+from userbot.events import register, nino_cmd
 
 
-@nino_cmd(outgoing=True, pattern="^.speed$")
+@nino_cmd(pattern="^.speed$")
 async def speedtst(spd):
     """ For .speed command, use SpeedTest to check server speeds. """
     await spd.edit("`Running high speed test . . .`")
@@ -55,7 +55,7 @@ def speed_convert(size):
 
 
 
-@nino_cmd(outgoing=True, pattern="^.ping$")
+@nino_cmd(pattern="^.ping$")
 async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     start = datetime.now()
