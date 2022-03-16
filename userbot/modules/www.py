@@ -15,7 +15,7 @@ from userbot.events import register, nino_cmd
 
 
 @nino_cmd(pattern="^.speed$")
-async def speedtst(spd):
+async def _(spd):
     """ For .speed command, use SpeedTest to check server speeds. """
     await spd.edit("`Running high speed test . . .`")
     test = Speedtest()
@@ -56,7 +56,7 @@ def speed_convert(size):
 
 
 @nino_cmd(pattern="^.ping$")
-async def pingme(pong):
+async def _(pong):
     """ For .ping command, ping the userbot from any chat.  """
     start = datetime.now()
     await pong.edit("`pooong!`")
