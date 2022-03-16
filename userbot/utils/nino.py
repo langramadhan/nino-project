@@ -1,9 +1,7 @@
-  import inspect
+import inspect
 import re
 from pathlib import Path
-
 from telethon import events
-
 from userbot import (
     CMD_HANDLER,
     CMD_LIST,
