@@ -312,7 +312,6 @@ USERS = {}
 COUNT_PM = {}
 ENABLE_KILLME = True
 LASTMSG = {}
-CMD_HELP = {}
 ISAFK = False
 AFKREASON = None
 
