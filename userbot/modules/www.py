@@ -10,6 +10,7 @@ from datetime import datetime
 
 from speedtest import Speedtest
 from telethon import functions
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot.utils import nino_cmd
