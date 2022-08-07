@@ -14,7 +14,6 @@ from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
 from math import ceil
 
-from pymongo import MongoClient
 from redis import StrictRedis
 from dotenv import load_dotenv
 from requests import get
