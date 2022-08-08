@@ -90,3 +90,4 @@ youtube_search
 youtube-search-python==1.4.9
 youtube-dl
 zipfile38
+markdown
