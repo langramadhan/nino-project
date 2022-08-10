@@ -41,6 +41,8 @@ justwatch
 lottie
 lxml
 lyricsgenius
+markdown
+motor
 oauth2client
 patool
 Pillow
